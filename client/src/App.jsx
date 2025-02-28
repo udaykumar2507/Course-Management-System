@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivateRoute from './components/privateroute';
 import Navbar from './components/navbar';
-import Home from './pages/HomePage';
-import About from './pages/About';
-import Courses from './pages/Courses'
+import Home from './Pages/HomePage';
+import About from './Pages/About';
+import Courses from './Pages/Courses'
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import StudentDashboard from './Pages/StudentDashboard';
