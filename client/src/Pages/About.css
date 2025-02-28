@@ -1,0 +1,55 @@
+/* About Page Styling */
+.about-container {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    min-height: 90vh;
+}
+
+.about-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.highlight {
+    color: #6366f1;
+}
+
+.about-subheading {
+    font-size: 1.5rem;
+    color: #334155;
+    margin-top: -10px;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.8;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: justify;
+}
+
+/* Explore Button Styling */
+.explore-btn {
+    background-color: #6366f1;
+    color: white;
+    padding: 14px 35px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.explore-btn:hover {
+    background-color: #4f46e5;
+    transform: translateY(-3px);
+}
+
+.explore-btn:active {
+    transform: translateY(0);
+}
