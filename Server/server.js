@@ -15,10 +15,17 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://course-management-system-r82o.vercel.app/', 
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 
-app.listen(process.env.PORT, () => console.log(`🚀 Server running on ${process.env.PORT}`));
+
+const PORT=process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
