@@ -34,6 +34,7 @@ const CourseCard = ({ course }) => {
 
       const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/courses/enroll/${course._id}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
+        withCredentials: true,
       });
 
       alert('Successfully enrolled!');

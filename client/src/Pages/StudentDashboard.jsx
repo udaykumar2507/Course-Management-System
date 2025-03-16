@@ -14,6 +14,7 @@ const StudentDashboard = () => {
 
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses/student/courses`, {
         headers: { Authorization: `Bearer ${token}` },
+        withCredentials:true,
       });
 
       setCourses(res.data);

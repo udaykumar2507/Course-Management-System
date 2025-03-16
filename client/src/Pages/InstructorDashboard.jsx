@@ -14,6 +14,7 @@ const InstructorDashboard = () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses/instructor`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          withCredentials:true,
         });
         setCourses(res.data);
       } catch (err) {
@@ -30,6 +31,7 @@ const InstructorDashboard = () => {
         title, description, price
       }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        withCredentials:true,
       });
   
       alert('Course added successfully!');
@@ -48,6 +50,7 @@ const InstructorDashboard = () => {
       const token = localStorage.getItem('token');
       await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/courses/${courseId}`, {
         headers: { Authorization: `Bearer ${token}` },
+        withCredentials:true,
       });
   
       alert('Course deleted successfully!');

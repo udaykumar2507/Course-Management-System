@@ -21,7 +21,7 @@ const Register = () => {
       return;
     }
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, { name, email, password, role });
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, { name, email, password, role },{withCredentials:true});
       alert('Registration Successful');
       navigate('/login');
     } catch (err) {

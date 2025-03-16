@@ -10,6 +10,7 @@ const AdminDashboard = () => {
       try {
         const usersRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/admin/users`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          withCredentials: true,
         });
         const coursesRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/admin/courses`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
