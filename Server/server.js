@@ -9,17 +9,32 @@ require('./models/Course');
 const authRoutes = require('./routes/AuthRoutes');
 const courseRoutes = require('./routes/CourseRoutes');
 
-
-
 dotenv.config();
 connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://course-management-system-r82o.vercel.app/', 
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://course-management-system-r82o.vercel.app'
+];
+
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
-}));
+};
+
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 
@@ -27,5 +42,5 @@ app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 
 
-const PORT=process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
