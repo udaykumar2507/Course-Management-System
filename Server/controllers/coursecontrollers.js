@@ -11,7 +11,6 @@ exports.getAllCourses = async (req, res) => {
       options: { strictPopulate: false },
     });
 
-    console.log("Courses fetched successfully:", courses);
     res.status(200).json(courses);
   } catch (err) {
     console.error("Error fetching courses:", err);
