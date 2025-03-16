@@ -11,7 +11,7 @@ const Courses = () => {
   const fetchCourses = async () => {
     try {
       console.log("Fetching courses...");
-      const res = await axios.get('http://localhost:5000/api/courses');
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses`);
       console.log("Courses received:", res.data);
       setCourses(res.data);
     } catch (error) {

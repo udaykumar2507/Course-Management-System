@@ -12,7 +12,7 @@ const InstructorDashboard = () => {
   useEffect(() => {
     const fetchInstructorCourses = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/courses/instructor', {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses/instructor`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setCourses(res.data);
@@ -26,7 +26,7 @@ const InstructorDashboard = () => {
   const handleAddCourse = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/courses/add', {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/courses/add`, {
         title, description, price
       }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -46,12 +46,12 @@ const InstructorDashboard = () => {
   const handleDeleteCourse = async (courseId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/courses/${courseId}`, {
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/courses/${courseId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
       alert('Course deleted successfully!');
-      setCourses(courses.filter(course => course._id !== courseId)); // ✅ Remove from UI
+      setCourses(courses.filter(course => course._id !== courseId)); 
     } catch (error) {
       console.error('Error deleting course:', error.response?.data || error.message);
     }

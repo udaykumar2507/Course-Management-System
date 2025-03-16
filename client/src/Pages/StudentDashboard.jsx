@@ -12,7 +12,7 @@ const StudentDashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      const res = await axios.get('http://localhost:5000/api/courses/student/courses', {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses/student/courses`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

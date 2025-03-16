@@ -32,7 +32,7 @@ const CourseCard = ({ course }) => {
 
       console.log("Enrolling in course:", course._id); 
 
-      const res = await axios.post(`http://localhost:5000/api/courses/enroll/${course._id}`, {}, {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/courses/enroll/${course._id}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

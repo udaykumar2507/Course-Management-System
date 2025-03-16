@@ -8,10 +8,10 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchAdminData = async () => {
       try {
-        const usersRes = await axios.get('http://localhost:5000/api/admin/users', {
+        const usersRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/admin/users`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
-        const coursesRes = await axios.get('http://localhost:5000/api/admin/courses', {
+        const coursesRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/admin/courses`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setUsers(usersRes.data);
