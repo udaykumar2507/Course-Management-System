@@ -6,8 +6,8 @@ const connectDB = require('./config/db');
 require('./models/User');  
 require('./models/Course');
 
-const authRoutes = require('./routes/AuthRoutes');
-const courseRoutes = require('./routes/CourseRoutes');
+const authRoutes = require('./routes/authRoutes');
+const courseRoutes = require('./routes/courseRoutes');
 
 dotenv.config();
 connectDB();
