@@ -1,4 +1,4 @@
-import img1 from '../assets/defaultimage';
+import img1 from '../assets/defaultimage.png';
 
 
 import React from 'react';
@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './coursecard.css';
 
-const defaultThumbnails = [img1];
+const defaultThumbnails = [img1, img2, img3, img4,img5,img6,img7,img8];
 
 const getRandomThumbnail = () => {
   return defaultThumbnails[Math.floor(Math.random() * defaultThumbnails.length)];
