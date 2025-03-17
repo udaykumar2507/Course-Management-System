@@ -10,7 +10,6 @@ exports.getAllCourses = async (req, res) => {
       select: 'name',
       options: { strictPopulate: false },
     });
-
     res.status(200).json(courses);
   } catch (err) {
     console.error("Error fetching courses:", err);
@@ -45,7 +44,7 @@ exports.addCourse = async (req, res) => {
 };
 
 
-exports.enrollCourse = async (req, res) => {
+exports. enrollCourse = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
     if (!course) return res.status(404).json({ message: 'Course not found' });

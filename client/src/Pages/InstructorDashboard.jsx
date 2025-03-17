@@ -64,7 +64,7 @@ const InstructorDashboard = () => {
     <>
       <Navbar/>
       <div className="dashboard-container">
-        <h2 className="dashboard-heading">My Created Courses</h2>
+        <h2 className="dashboard-heading">My Courses</h2>
         <form className="course-form" onSubmit={handleAddCourse}>
           <input type="text" placeholder="Course Title" value={title} onChange={(e) => setTitle(e.target.value)} required className="course-input" />
           <input type="text" placeholder="Course Description" value={description} onChange={(e) => setDescription(e.target.value)} required className="course-input" />

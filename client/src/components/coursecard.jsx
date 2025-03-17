@@ -1,18 +1,12 @@
-import img1 from '../assets/luffy.jpeg';
-import img2 from '../assets/boys.webp';
-import img3 from '../assets/deadpool.jpeg';
-import img4 from '../assets/GOT.webp';
-import img5 from '../assets/gotham.webp';
-import img6 from '../assets/marvel.webp';
-import img7 from '../assets/one piece.webp';
-import img8 from '../assets/superman.avif';
+import img1 from '../assets/defaultimage';
+
 
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './coursecard.css';
 
-const defaultThumbnails = [img1, img2, img3, img4,img5,img6,img7,img8];
+const defaultThumbnails = [img1];
 
 const getRandomThumbnail = () => {
   return defaultThumbnails[Math.floor(Math.random() * defaultThumbnails.length)];
