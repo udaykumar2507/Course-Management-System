@@ -1,5 +1,6 @@
 const Course = require('../models/Course');
 const User=require('../models/User');
+const cloudinary = require('../utils/cloudinary');
 
 
 exports.getAllCourses = async (req, res) => {
@@ -84,5 +85,69 @@ exports.deleteCourse = async (req, res) => {
     res.status(200).json({ message: 'Course deleted successfully' });
   } catch (err) {
     res.status(500).json({ message: 'Error deleting course', error: err.message });
+  }
+};
+
+
+exports.getUserDetail=async (req,res)=>{
+  try{
+    const user=req.user
+    res.status(200).json({user});
+  }catch(error){
+    res.status(400).json({message:"Unable to Fetch User Deatil"})
+  }
+}
+
+
+exports.updateProfile = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const user = await User.findById(userId);
+
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    const {
+      name,
+      email,
+      role,
+      location,
+      college,
+      githubId,
+      twitterId,
+      linkedinId
+    } = req.body;
+
+  
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (role) user.role = role;
+    if (location) user.location = location;
+    if (college) user.college = college;
+    if (githubId) user.githubId = githubId;
+    if (twitterId) user.twitterId = twitterId;
+    if (linkedinId) user.linkedinId = linkedinId;
+
+    // Handle new profile photo if uploaded
+    if (req.file) {
+      // If previous photo exists, delete from cloudinary
+      if (user.profilephoto && user.profilephoto.public_id) {
+        await cloudinary.uploader.destroy(user.profilephoto.public_id);
+      }
+
+      user.profilephoto = {
+        url: req.file.path,
+        public_id: req.file.filename
+      };
+    }
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      message: 'Profile updated successfully',
+      user: updatedUser
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Something went wrong while updating profile' });
   }
 };

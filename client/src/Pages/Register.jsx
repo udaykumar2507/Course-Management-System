@@ -21,7 +21,7 @@ const Register = () => {
       return;
     }
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, { name, email, password, role },{withCredentials:true});
+      const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password, role },{withCredentials:true});
       alert('Registration Successful');
       navigate('/login');
     } catch (err) {
@@ -35,10 +35,10 @@ const Register = () => {
       <div className="register-container">
         <h2 className="register-heading">Create Your <span className="highlight">EduLoom</span> Account 🚀</h2>
         <form className="register-form" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} className="register-input" />
-          <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} className="register-input" />
-          <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} className="register-input" />
-          <input type="password" placeholder="Confirm Password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="register-input" />
+          <input type="text" placeholder="Full Name" autoComplete="current-password" required value={name} onChange={(e) => setName(e.target.value)} className="register-input" />
+          <input type="email" placeholder="Email Address" autoComplete="current-password" required value={email} onChange={(e) => setEmail(e.target.value)} className="register-input" />
+          <input type="password" placeholder="Password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} className="register-input" />
+          <input type="password" placeholder="Confirm Password" autoComplete="current-password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="register-input" />
           <label className="register-label">Select Role:</label>
           <select value={role} onChange={(e) => setRole(e.target.value)} className="register-input">
             <option value="student">Student</option>

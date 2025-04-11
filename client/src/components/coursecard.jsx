@@ -6,11 +6,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './coursecard.css';
 
-const defaultThumbnails = [img1];
-
-const getRandomThumbnail = () => {
-  return defaultThumbnails[Math.floor(Math.random() * defaultThumbnails.length)];
-};
 
 const CourseCard = ({ course }) => {
   const navigate = useNavigate();
