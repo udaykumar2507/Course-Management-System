@@ -11,7 +11,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserDetail = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/courses/getstudentdetail', {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/courses/getstudentdetail`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

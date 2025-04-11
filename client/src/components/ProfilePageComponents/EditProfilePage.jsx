@@ -71,7 +71,7 @@ const EditProfile = () => {
         data.append('profilePhoto', profilePhoto);
       }
 
-      const res = await axios.put('http://localhost:5000/api/courses/update-profile', data, {
+      const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/courses/update-profile`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
            Authorization: `Bearer ${localStorage.getItem("token")}`
