@@ -12,6 +12,7 @@ import InstructorDashboard from './Pages/InstructorDashboard';
 import AdminDashboard from './Pages/AdminDashboard';
 import StudentProfilePage from './Pages/StudentProfilePage';
 import EditProfilePage from './components/ProfilePageComponents/EditProfilePage';
+import InstructorProfilePage from './Pages/InstructorProfilePage';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
          <Route path="/edit-profile" element={<EditProfilePage />} />
         <Route path="/student-profilepage" element={<PrivateRoute allowedRoles={["student"]} />}> <Route index element={<StudentProfilePage />} /> </Route>
+         <Route path="/instructor-profilepage" element={<PrivateRoute allowedRoles={["instructor"]} />}> <Route index element={<InstructorProfilePage />} /> </Route>
         <Route path="/student-dashboard" element={<PrivateRoute allowedRoles={["student"]} />}> <Route index element={<StudentDashboard />} /> </Route>
         <Route path="/instructor-dashboard" element={<PrivateRoute allowedRoles={["instructor"]} />}> <Route index element={<InstructorDashboard />} /> </Route>
         <Route path="/admin-dashboard" element={<PrivateRoute allowedRoles={["superadmin"]} />}> <Route index element={<AdminDashboard />} /> </Route>

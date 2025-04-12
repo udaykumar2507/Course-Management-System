@@ -91,7 +91,7 @@ exports.deleteCourse = async (req, res) => {
 
 exports.getUserDetail=async (req,res)=>{
   try{
-    const user=req.user
+    const user=req.user;
     res.status(200).json({user});
   }catch(error){
     res.status(400).json({message:"Unable to Fetch User Deatil"})

@@ -12,7 +12,7 @@ router.get('/instructor', protect, authorize('instructor'), getInstructorCourses
 router.post('/add', protect, authorize('instructor'), addCourse);
 router.post('/enroll/:id', protect, authorize('student'), enrollCourse);
 router.delete('/:id', protect, authorize('instructor'), deleteCourse);
-router.get('/getstudentdetail',protect,authorize('student'),getUserDetail);
+router.get('/getstudentdetail',protect,getUserDetail);
 router.put('/update-profile',protect,upload.single('profilePhoto'), updateProfile);
 
 

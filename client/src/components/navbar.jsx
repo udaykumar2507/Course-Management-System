@@ -26,7 +26,8 @@ const Navbar = () => {
             {role === 'instructor' && <li><Link to="/instructor-dashboard">Dashboard</Link></li>}
             {role === 'superadmin' && <li><Link to="/admin-dashboard">Admin</Link></li>}
             <li onClick={handleLogout} style={{ cursor: 'pointer', color: 'white' }}>Logout</li>
-            <li><Link to="/student-profilepage">Profile Page</Link></li>
+            { role==='student' && <li><Link to="/student-profilepage">Profile Page</Link></li>}
+            { role==='instructor' && <li><Link to="/instructor-profilepage">Profile Page</Link></li>}
           </>
         ) : (
           <li><Link to="/login">Login</Link></li>
